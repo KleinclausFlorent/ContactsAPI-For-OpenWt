@@ -17,22 +17,24 @@ namespace MyContacts.API.Mapping
             CreateMap<Skill, SkillResource>();
             CreateMap<Skill, SaveSkillResource>();
             CreateMap<Contact, SaveContactResource>();
-            CreateMap<User, UserResource>();
             CreateMap<Expertise, ExpertiseResource>();
             CreateMap<Expertise, SaveExpertiseResource>();
             CreateMap<ContactSkillExpertise, ContactSkillExpertiseResource>();
             CreateMap<ContactSkillExpertise, SaveContactSkillExpertiseResource>();
+            CreateMap<User, UserResource>();
+            CreateMap<User, SaveUserResource>();
 
             // Resources vers domain ou bdd
             CreateMap<ContactResource, Contact>();
             CreateMap<SkillResource, Skill>();
             CreateMap<SaveSkillResource, Skill>();
             CreateMap<SaveContactResource, Contact>();
-            CreateMap<UserResource, User>();
             CreateMap<ExpertiseResource, Expertise>();
             CreateMap<SaveExpertiseResource, Expertise>();
             CreateMap<ContactSkillExpertiseResource, ContactSkillExpertise>();
             CreateMap<SaveContactSkillExpertiseResource, ContactSkillExpertise>();
+            CreateMap<UserResource, User>();
+            CreateMap<SaveUserResource, User>();
         }
     }
 }

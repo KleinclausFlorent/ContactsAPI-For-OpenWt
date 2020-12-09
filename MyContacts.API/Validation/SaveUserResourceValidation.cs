@@ -7,16 +7,19 @@ using System.Threading.Tasks;
 
 namespace MyContacts.API.Validation
 {
-    public class SaveUserResourceValidation : AbstractValidator<UserResource>
+    public class SaveUserResourceValidation : AbstractValidator<SaveUserResource>
     {
         public SaveUserResourceValidation()
         {
-            RuleFor(m => m.Username)
+            RuleFor(u => u.Username)
                .NotEmpty()
                .MaximumLength(50);
-            RuleFor(m => m.Password)
+            RuleFor(u => u.Password)
                .NotEmpty()
                .MaximumLength(50);
+            RuleFor(u => u.ContactId)
+                .NotEmpty()
+                .WithMessage(" 'Contact Id' must not be 0.");
 
         }
     }

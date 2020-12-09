@@ -5,13 +5,11 @@ using System.Threading.Tasks;
 
 namespace MyContacts.API.Resources
 {
-    public class UserResource
+    public class SaveUserResource
     {
-        public int Id { get; set; }
-
         public string Username { get; set; }
 
-        public ContactResource Contact { get; set; }
+        public int ContactId { get; set; }
 
         public string Password { get; set; }
 

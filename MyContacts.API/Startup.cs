@@ -35,9 +35,9 @@ namespace MyContacts.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            //Add NewtonJson
             services.AddControllers().AddNewtonsoftJson(options =>
-           options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+            options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
             //Configuration for SQL server
             services.AddDbContext<MyContactsDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default"), x => x.MigrationsAssembly("MyContacts.Data")));
@@ -51,7 +51,7 @@ namespace MyContacts.API
             services.AddTransient<IExpertiseService, ExpertiseService>();
             services.AddTransient<IContactSkillExpertiseService, ContactSkillExpertiseService>();
            
-
+            //Swagger
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MyContacts.API", Version = "v1" });
@@ -60,7 +60,6 @@ namespace MyContacts.API
             // Automapper
             services.AddAutoMapper(typeof(Startup));
 
-            /*
             //Jwt 
             services.AddTransient<IUserService, UserService>();
             var key = Encoding.ASCII.GetBytes(Configuration.GetValue<string>("AppSettings:Secret"));
@@ -76,7 +75,7 @@ namespace MyContacts.API
                     {
                         var userService = context.HttpContext.RequestServices.GetRequiredService<IUserService>();
                         var userId = int.Parse(context.Principal.Identity.Name);
-                        var user = userService.GetById(userId);
+                        var user = userService.GetUserById(userId);
                         if (user == null)
                         {
                             //Return unauthorized if user no longer exists
@@ -95,7 +94,6 @@ namespace MyContacts.API
                     ValidateAudience = false
                 };
             });
-            */
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -110,6 +108,8 @@ namespace MyContacts.API
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
