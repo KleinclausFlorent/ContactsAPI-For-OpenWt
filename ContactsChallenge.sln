@@ -11,13 +11,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web.API", "Web.API", "{446C
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web.Client", "Web.Client", "{56CAA95E-A7C1-4F9C-B607-A44CA45F5120}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyContacts.API", "MyContacts.API\MyContacts.API.csproj", "{F1C789B9-07DB-4906-9057-F3C0773DA0D6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyContacts.API", "MyContacts.API\MyContacts.API.csproj", "{F1C789B9-07DB-4906-9057-F3C0773DA0D6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyContacts.Core", "MyContacts.Core\MyContacts.Core.csproj", "{79E5F615-8C58-4833-943D-A829760D5E54}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyContacts.Core", "MyContacts.Core\MyContacts.Core.csproj", "{79E5F615-8C58-4833-943D-A829760D5E54}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyContacts.Service", "MyContacts.Service\MyContacts.Service.csproj", "{449A22C3-8A3D-4185-A79D-24F7B18068C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyContacts.Service", "MyContacts.Service\MyContacts.Service.csproj", "{449A22C3-8A3D-4185-A79D-24F7B18068C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyContacts.Data", "MyContacts.Data\MyContacts.Data.csproj", "{40D61690-74B2-4B4A-92A0-6B77CA4C7311}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyContacts.Data", "MyContacts.Data\MyContacts.Data.csproj", "{40D61690-74B2-4B4A-92A0-6B77CA4C7311}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyContactsMVC", "MyContactsMVC\MyContactsMVC.csproj", "{0DCA2DD2-E121-4357-BF37-013C67C27025}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,10 @@ Global
 		{40D61690-74B2-4B4A-92A0-6B77CA4C7311}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40D61690-74B2-4B4A-92A0-6B77CA4C7311}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40D61690-74B2-4B4A-92A0-6B77CA4C7311}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DCA2DD2-E121-4357-BF37-013C67C27025}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DCA2DD2-E121-4357-BF37-013C67C27025}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DCA2DD2-E121-4357-BF37-013C67C27025}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DCA2DD2-E121-4357-BF37-013C67C27025}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -52,6 +58,7 @@ Global
 		{79E5F615-8C58-4833-943D-A829760D5E54} = {446C7C12-A7F9-489E-BBAB-A2B3DA614D56}
 		{449A22C3-8A3D-4185-A79D-24F7B18068C7} = {446C7C12-A7F9-489E-BBAB-A2B3DA614D56}
 		{40D61690-74B2-4B4A-92A0-6B77CA4C7311} = {446C7C12-A7F9-489E-BBAB-A2B3DA614D56}
+		{0DCA2DD2-E121-4357-BF37-013C67C27025} = {56CAA95E-A7C1-4F9C-B607-A44CA45F5120}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {30D53760-DA8D-44D1-8578-4BDAE99D6B8E}
