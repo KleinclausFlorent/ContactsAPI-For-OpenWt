@@ -1,0 +1,12 @@
+C:\Users\klein\Documents\Ludus\Challenge Open Wt\ContactsChallenge\MyContacts.Data\bin\Debug\netstandard2.1\MyContacts.Core.dll
+C:\Users\klein\Documents\Ludus\Challenge Open Wt\ContactsChallenge\MyContacts.Data\obj\Debug\netstandard2.1\MyContacts.Data.AssemblyInfoInputs.cache
+C:\Users\klein\Documents\Ludus\Challenge Open Wt\ContactsChallenge\MyContacts.Data\obj\Debug\netstandard2.1\MyContacts.Data.AssemblyInfo.cs
+C:\Users\klein\Documents\Ludus\Challenge Open Wt\ContactsChallenge\MyContacts.Data\obj\Debug\netstandard2.1\MyContacts.Data.csprojAssemblyReference.cache
+C:\Users\klein\Documents\Ludus\Challenge Open Wt\ContactsChallenge\MyContacts.Data\bin\Debug\netstandard2.1\MyContacts.Data.deps.json
+C:\Users\klein\Documents\Ludus\Challenge Open Wt\ContactsChallenge\MyContacts.Data\bin\Debug\netstandard2.1\MyContacts.Data.dll
+C:\Users\klein\Documents\Ludus\Challenge Open Wt\ContactsChallenge\MyContacts.Data\bin\Debug\netstandard2.1\MyContacts.Data.pdb
+C:\Users\klein\Documents\Ludus\Challenge Open Wt\ContactsChallenge\MyContacts.Data\bin\Debug\netstandard2.1\MyContacts.Core.pdb
+C:\Users\klein\Documents\Ludus\Challenge Open Wt\ContactsChallenge\MyContacts.Data\obj\Debug\netstandard2.1\MyContacts.Data.csproj.CoreCompileInputs.cache
+C:\Users\klein\Documents\Ludus\Challenge Open Wt\ContactsChallenge\MyContacts.Data\obj\Debug\netstandard2.1\MyContacts.Data.csproj.CopyComplete
+C:\Users\klein\Documents\Ludus\Challenge Open Wt\ContactsChallenge\MyContacts.Data\obj\Debug\netstandard2.1\MyContacts.Data.dll
+C:\Users\klein\Documents\Ludus\Challenge Open Wt\ContactsChallenge\MyContacts.Data\obj\Debug\netstandard2.1\MyContacts.Data.pdb

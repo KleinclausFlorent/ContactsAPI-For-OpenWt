@@ -1,0 +1,329 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\klein\\Documents\\Ludus\\Challenge Open Wt\\ContactsChallenge\\MyContacts.API\\MyContacts.API.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\klein\\Documents\\Ludus\\Challenge Open Wt\\ContactsChallenge\\MyContacts.API\\MyContacts.API.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\klein\\Documents\\Ludus\\Challenge Open Wt\\ContactsChallenge\\MyContacts.API\\MyContacts.API.csproj",
+        "projectName": "MyContacts.API",
+        "projectPath": "C:\\Users\\klein\\Documents\\Ludus\\Challenge Open Wt\\ContactsChallenge\\MyContacts.API\\MyContacts.API.csproj",
+        "packagesPath": "C:\\Users\\klein\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\klein\\Documents\\Ludus\\Challenge Open Wt\\ContactsChallenge\\MyContacts.API\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\klein\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Users\\klein\\Documents\\Ludus\\Challenge Open Wt\\ContactsChallenge\\MyContacts.Data\\MyContacts.Data.csproj": {
+                "projectPath": "C:\\Users\\klein\\Documents\\Ludus\\Challenge Open Wt\\ContactsChallenge\\MyContacts.Data\\MyContacts.Data.csproj"
+              },
+              "C:\\Users\\klein\\Documents\\Ludus\\Challenge Open Wt\\ContactsChallenge\\MyContacts.Service\\MyContacts.Service.csproj": {
+                "projectPath": "C:\\Users\\klein\\Documents\\Ludus\\Challenge Open Wt\\ContactsChallenge\\MyContacts.Service\\MyContacts.Service.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[10.1.1, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[8.1.0, )"
+            },
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[9.3.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[5.0.1, )",
+              "noWarn": [
+                "NU1605"
+              ]
+            },
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[5.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.1, )"
+            },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[6.8.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[5.6.3, )"
+            },
+            "Swashbuckle.Core": {
+              "target": "Package",
+              "version": "[5.6.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\klein\\Documents\\Ludus\\Challenge Open Wt\\ContactsChallenge\\MyContacts.Core\\MyContacts.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\klein\\Documents\\Ludus\\Challenge Open Wt\\ContactsChallenge\\MyContacts.Core\\MyContacts.Core.csproj",
+        "projectName": "MyContacts.Core",
+        "projectPath": "C:\\Users\\klein\\Documents\\Ludus\\Challenge Open Wt\\ContactsChallenge\\MyContacts.Core\\MyContacts.Core.csproj",
+        "packagesPath": "C:\\Users\\klein\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\klein\\Documents\\Ludus\\Challenge Open Wt\\ContactsChallenge\\MyContacts.Core\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\klein\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "System.Threading.Tasks.Extensions": {
+              "target": "Package",
+              "version": "[4.5.4, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\klein\\Documents\\Ludus\\Challenge Open Wt\\ContactsChallenge\\MyContacts.Data\\MyContacts.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\klein\\Documents\\Ludus\\Challenge Open Wt\\ContactsChallenge\\MyContacts.Data\\MyContacts.Data.csproj",
+        "projectName": "MyContacts.Data",
+        "projectPath": "C:\\Users\\klein\\Documents\\Ludus\\Challenge Open Wt\\ContactsChallenge\\MyContacts.Data\\MyContacts.Data.csproj",
+        "packagesPath": "C:\\Users\\klein\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\klein\\Documents\\Ludus\\Challenge Open Wt\\ContactsChallenge\\MyContacts.Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\klein\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {
+              "C:\\Users\\klein\\Documents\\Ludus\\Challenge Open Wt\\ContactsChallenge\\MyContacts.Core\\MyContacts.Core.csproj": {
+                "projectPath": "C:\\Users\\klein\\Documents\\Ludus\\Challenge Open Wt\\ContactsChallenge\\MyContacts.Core\\MyContacts.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\klein\\Documents\\Ludus\\Challenge Open Wt\\ContactsChallenge\\MyContacts.Service\\MyContacts.Service.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\klein\\Documents\\Ludus\\Challenge Open Wt\\ContactsChallenge\\MyContacts.Service\\MyContacts.Service.csproj",
+        "projectName": "MyContacts.Service",
+        "projectPath": "C:\\Users\\klein\\Documents\\Ludus\\Challenge Open Wt\\ContactsChallenge\\MyContacts.Service\\MyContacts.Service.csproj",
+        "packagesPath": "C:\\Users\\klein\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\klein\\Documents\\Ludus\\Challenge Open Wt\\ContactsChallenge\\MyContacts.Service\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\klein\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {
+              "C:\\Users\\klein\\Documents\\Ludus\\Challenge Open Wt\\ContactsChallenge\\MyContacts.Core\\MyContacts.Core.csproj": {
+                "projectPath": "C:\\Users\\klein\\Documents\\Ludus\\Challenge Open Wt\\ContactsChallenge\\MyContacts.Core\\MyContacts.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
