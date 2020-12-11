@@ -12,6 +12,10 @@ namespace MyContacts.Core.Repositories
 
         Task<ContactSkillExpertise> GetWithCSEByIdAsync(int id);
 
+        Task<int> GetCSEId(ContactSkillExpertise contactSkillExpertiseToFind);
+
+        Task<int> GetCSEIdByContactIdSkillId(int contactId, int skillId);
+
         Task<IEnumerable<ContactSkillExpertise>> GetAllWithContactByContactIdAsync(int contactId);
 
         Task<IEnumerable<ContactSkillExpertise>> GetAllWithContactBySkillIdAsync(int skillId);

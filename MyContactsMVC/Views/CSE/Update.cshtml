@@ -1,0 +1,49 @@
+﻿@model ContactSkillExpertiseViewModel
+
+@{
+    ViewData["Title"] = "Update Content Skill Expertise";
+}
+
+
+<span class="btn-danger">@ViewBag.MessageError</span>
+<form asp-controller="CSE" asp-action="Update" method="post" class="col-12 form-horizontal" role="form">
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+
+
+    <div class="form-group">
+        <label asp-for="@Model.ContactId" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <select asp-for="@Model.ContactId" asp-items="@Model.ContactList" class="form-group col-5 btn btn-primary ">
+            </select>
+            <span asp-validation-for="@Model.ContactId" class="text-danger"></span>
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.SkillId" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <select asp-for="@Model.SkillId" asp-items="@Model.SkillList" class="form-group col-5 btn btn-primary ">
+            </select>
+            <span asp-validation-for="@Model.SkillId" class="text-danger"></span>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.ExpertiseId" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <select asp-for="@Model.ExpertiseId" asp-items="@Model.ExpertiseList" class="form-group col-5 btn btn-primary ">
+            </select>
+            <span asp-validation-for="@Model.ExpertiseList" class="text-danger"></span>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-5">
+            <input type="submit" class="btn btn-primary" value="Update" />
+        </div>
+    </div>
+
+</form>

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MyContacts.API.Resources;
@@ -26,6 +27,7 @@ namespace MyContacts.API.Controllers
         }
 
         [HttpGet("")]
+        [Authorize]
         public async Task<ActionResult<IEnumerable<ExpertiseResource>>> GetAllExpertises()
         {
             try
@@ -44,6 +46,7 @@ namespace MyContacts.API.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize]
         public async Task<ActionResult<ExpertiseResource>> GetExpertiseById(int id)
         {
             try
@@ -64,6 +67,7 @@ namespace MyContacts.API.Controllers
         }
 
         [HttpPost("")]
+        [Authorize]
         public async Task<ActionResult<ExpertiseResource>> CreateExpertise(SaveExpertiseResource saveExpertiseResource)
         {
             try
@@ -90,6 +94,7 @@ namespace MyContacts.API.Controllers
 
 
         [HttpPut("")]
+        [Authorize]
         public async Task<ActionResult<ExpertiseResource>> UpdateExpertise(int id, SaveExpertiseResource saveExpertiseResource)
         {
             try
@@ -122,6 +127,7 @@ namespace MyContacts.API.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task<ActionResult> DeleteExpertise(int id)
         {
             try

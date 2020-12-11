@@ -122,3 +122,8 @@ C:\Users\klein\Documents\Ludus\Challenge Open Wt\ContactsChallenge\MyContactsMVC
 C:\Users\klein\Documents\Ludus\Challenge Open Wt\ContactsChallenge\MyContactsMVC\obj\Debug\net5.0\MyContactsMVC.Views.pdb
 C:\Users\klein\Documents\Ludus\Challenge Open Wt\ContactsChallenge\MyContactsMVC\obj\Debug\net5.0\MyContactsMVC.csproj.CopyComplete
 C:\Users\klein\Documents\Ludus\Challenge Open Wt\ContactsChallenge\MyContactsMVC\obj\Debug\net5.0\MyContactsMVC.genruntimeconfig.cache
+C:\Users\klein\Documents\Ludus\Challenge Open Wt\ContactsChallenge\MyContactsMVC\obj\Debug\net5.0\Razor\Views\Shared\_CSEPartial.cshtml.g.cs
+C:\Users\klein\Documents\Ludus\Challenge Open Wt\ContactsChallenge\MyContactsMVC\obj\Debug\net5.0\Razor\Views\CSE\Show.cshtml.g.cs
+C:\Users\klein\Documents\Ludus\Challenge Open Wt\ContactsChallenge\MyContactsMVC\obj\Debug\net5.0\Razor\Views\CSE\Add.cshtml.g.cs
+C:\Users\klein\Documents\Ludus\Challenge Open Wt\ContactsChallenge\MyContactsMVC\obj\Debug\net5.0\Razor\Views\CSE\Update.cshtml.g.cs
+C:\Users\klein\Documents\Ludus\Challenge Open Wt\ContactsChallenge\MyContactsMVC\obj\Debug\net5.0\Razor\Views\CSE\Delete.cshtml.g.cs

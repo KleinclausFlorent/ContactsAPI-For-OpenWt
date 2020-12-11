@@ -1,0 +1,30 @@
+﻿@model ListCSEViewModel
+@{
+    ViewData["Title"] = "Show Content Skill Expertise";
+}
+<span class="btn-danger">@ViewBag.MessageError</span>
+<div class="col">
+    <a class="btn btn-primary" asp-controller="CSE" asp-action="Add">Add Content Skill Expertise</a>
+    <a class="btn btn-primary" asp-controller="CSE" asp-action="Update">Update Content Skill Expertise</a>
+    <a class="btn btn-primary" asp-controller="CSE" asp-action="Delete">Delete Content Skill Expertise</a>
+</div>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>First Name of Contact</th>
+            <th>Name of skill</th>
+            <th>Name of expertise</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cse in Model.ListCSE)
+        {
+            <tr>
+                <td class="text-center">@cse.Contact.Firstname </td>
+                <td class="text-center">@cse.Skill.Name </td>
+                <td class="text-center">@cse.Expertise.Name </td>
+            </tr>
+        }
+    </tbody>
+</table>

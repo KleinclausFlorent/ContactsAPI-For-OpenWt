@@ -65,5 +65,25 @@ namespace MyContacts.Data.Repositories
                 .Where(x => x.ExpertiseId == expertiseId)
                 .ToListAsync();
         }
+
+        public async Task<int> GetCSEId(ContactSkillExpertise contactSkillExpertiseToFind)
+        {
+            ContactSkillExpertise tempcse = await MyContactsDbContext.ContactSkillExpertises
+                .SingleOrDefaultAsync(x => 
+                    x.Contact.Id == contactSkillExpertiseToFind.ContactId && x.Skill.Id == contactSkillExpertiseToFind.SkillId
+                );
+            if (tempcse == null) return 0;
+            return tempcse.Id;
+        }
+
+        public async Task<int> GetCSEIdByContactIdSkillId(int contactId, int skillId)
+        {
+            ContactSkillExpertise tempcse = await MyContactsDbContext.ContactSkillExpertises
+                .SingleOrDefaultAsync(x =>
+                x.SkillId == skillId && x.ContactId == contactId
+                );
+
+            return tempcse.Id;
+        }
     }
 }

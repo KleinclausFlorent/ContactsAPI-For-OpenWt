@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MyContacts.API.Resources;
@@ -26,7 +27,7 @@ namespace MyContacts.API.Controllers
         }
 
         [HttpPost("")]
-        //[Authorize]
+        [Authorize]
         public async Task<ActionResult<ContactSkillExpertiseResource>> CreateCSE(SaveContactSkillExpertiseResource saveCSEResource)
         {
 
@@ -48,6 +49,7 @@ namespace MyContacts.API.Controllers
         }
 
         [HttpGet("")]
+        [Authorize]
         public async Task<ActionResult<IEnumerable<ContactSkillExpertiseResource>>> GetAllCSE()
         {
             try
@@ -65,7 +67,9 @@ namespace MyContacts.API.Controllers
 
         }
 
+        
         [HttpGet("{id}")]
+        [Authorize]
         public async Task<ActionResult<ContactSkillExpertiseResource>> GetCSEById(int id)
         {
             try
@@ -84,7 +88,8 @@ namespace MyContacts.API.Controllers
             }
         }
 
-        [HttpGet("Contact/id")]
+        [HttpGet("Contact/{id}")]
+        [Authorize]
         public async Task<ActionResult<IEnumerable<ContactSkillExpertiseResource>>> GetAllCSEsByContactId(int id)
         {
             try
@@ -105,6 +110,7 @@ namespace MyContacts.API.Controllers
         }
 
         [HttpGet("Skill/id")]
+        [Authorize]
         public async Task<ActionResult<IEnumerable<ContactSkillExpertiseResource>>> GetAllCSEsBySkillId(int id)
         {
             try
@@ -125,6 +131,7 @@ namespace MyContacts.API.Controllers
         }
 
         [HttpGet("Expertise/id")]
+        [Authorize]
         public async Task<ActionResult<IEnumerable<ContactSkillExpertiseResource>>> GetAllCSEsByExpertiseId(int id)
         {
             try
@@ -144,10 +151,30 @@ namespace MyContacts.API.Controllers
             }
         }
 
+        [HttpGet("Contact/Skill/{ContactId}/{SkillId}")]
+        [Authorize]
+        public async Task<ActionResult<int>> GetCSEId(int ContactId, int SkillId)
+        {
+            try
+            {
+                // Find CSE Id
+                var cseUpdateId = await _contactSkillExpertiseService.GetContactSkillExpertiseIdByContactIdSkillID(ContactId, SkillId);
+
+                if (cseUpdateId == 0) return BadRequest("cse not found for these contactId and SkillID");
+
+                return Ok(cseUpdateId);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+        }
 
 
         [HttpPut("{id}")]
-        public async Task<ActionResult<ContactSkillExpertiseResource>> UpdateCSE(int id, SaveContactSkillExpertiseResource saveCSEResource)
+        [Authorize]
+        public async Task<ActionResult<ContactSkillExpertiseResource>> UpdateCSEWithId(int id, SaveContactSkillExpertiseResource saveCSEResource)
         {
             try
             {
@@ -183,7 +210,52 @@ namespace MyContacts.API.Controllers
 
         }
 
+       
+
+
+        [HttpPut("")]
+        [Authorize]
+        public async Task<ActionResult<ContactSkillExpertiseResource>> UpdateCSE( SaveContactSkillExpertiseResource saveCSEResource)
+        {
+            try
+            {
+                // validation
+                var validation = new SaveContactSkillExpertiseResourceValidation();
+
+                var validationResult = await validation.ValidateAsync(saveCSEResource);
+
+                if (!validationResult.IsValid) return BadRequest(validationResult.Errors);
+
+                // Find CSE Id
+                //  mappage
+                var cseToFind = _mapperService.Map<SaveContactSkillExpertiseResource, ContactSkillExpertise>(saveCSEResource);
+
+                var cseUpdateId = await _contactSkillExpertiseService.GetContactSkillExpertiseId(cseToFind);
+
+                if (cseUpdateId == 0) return BadRequest("cse not found");
+
+                var cseUpdate = await _contactSkillExpertiseService.GetContactSkillExpertiseById(cseUpdateId);
+
+                if (cseUpdate == null) return BadRequest("cse not found");
+
+                // update
+                await _contactSkillExpertiseService.UpdateContactSkillExpertise(cseUpdate, cseToFind);
+
+                var cseUpdateNew = await _contactSkillExpertiseService.GetContactSkillExpertiseById(cseUpdateId);
+
+                // Mappage 
+                var cseResourceUpdate = _mapperService.Map<ContactSkillExpertise, ContactSkillExpertiseResource>(cseUpdateNew);
+                return Ok(cseResourceUpdate);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+        }
+
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task<ActionResult> deleteCSE(int id)
         {
             var cse = await _contactSkillExpertiseService.GetContactSkillExpertiseById(id);
@@ -196,6 +268,7 @@ namespace MyContacts.API.Controllers
         }
 
         
+
 
     }
 }

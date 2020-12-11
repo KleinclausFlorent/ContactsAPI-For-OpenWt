@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace MyContacts.Service.Services
 {
+
     public class ContactSkillExpertiseService : IContactSkillExpertiseService
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -40,6 +41,16 @@ namespace MyContacts.Service.Services
             return await _unitOfWork.ContactSkillExpertises.GetByIdAsync(id);
         }
 
+        public async Task<int> GetContactSkillExpertiseId(ContactSkillExpertise ContactSkillExpertiseToFind)
+        {
+            return await _unitOfWork.ContactSkillExpertises.GetCSEId(ContactSkillExpertiseToFind);
+        }
+
+        public async Task<int> GetContactSkillExpertiseIdByContactIdSkillID(int contactId, int skillId)
+        {
+            return await _unitOfWork.ContactSkillExpertises.GetCSEIdByContactIdSkillId(contactId, skillId);
+        }
+
         public async Task<IEnumerable<ContactSkillExpertise>> GetContactSkillExpertisesByContactId(int contactId)
         {
             return await _unitOfWork.ContactSkillExpertises.GetAllWithContactByContactIdAsync(contactId);
@@ -63,5 +74,6 @@ namespace MyContacts.Service.Services
 
             await _unitOfWork.CommitAsync();
         }
+
     }
 }

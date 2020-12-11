@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -12,7 +13,10 @@ namespace MyContactsMVC.ViewModel
         [Required]
         public string Username { get; set; }
 
-        [Required]
+        public SelectList ContactList { get; set; }
+
+        [Required(ErrorMessage = "Please enter the Contact")]
+        [Display(Name = "Contact")]
         public int ContactId { get; set; }
 
         [DataType(DataType.Password)]

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MyContacts.API.Resources;
@@ -27,6 +28,7 @@ namespace MyContacts.API.Controllers
         }
 
         [HttpGet("")]
+        [Authorize]
         public async Task<ActionResult<IEnumerable<SkillResource>>> GetAllSkills()
         {
             try
@@ -45,6 +47,7 @@ namespace MyContacts.API.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize]
         public async Task<ActionResult<SkillResource>> GetSkillById(int id)
         {
             try
@@ -65,6 +68,7 @@ namespace MyContacts.API.Controllers
         }
 
         [HttpPost("")]
+        [Authorize]
         public async Task<ActionResult<SkillResource>> CreateSkill(SaveSkillResource saveSkillResource)
         {
             try
@@ -91,6 +95,7 @@ namespace MyContacts.API.Controllers
 
 
         [HttpPut("")]
+        [Authorize]
         public async Task<ActionResult<SkillResource>> UpdateSkill(int id, SaveSkillResource saveSkillResource)
         {
             try
@@ -123,6 +128,7 @@ namespace MyContacts.API.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task<ActionResult> DeleteSkill(int id)
         {
             try

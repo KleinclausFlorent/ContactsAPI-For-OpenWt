@@ -1,5 +1,8 @@
 ﻿
 @model RegisterViewModel
+@{
+    ViewData["Title"] = "Register";
+}
 <h2>Register</h2>
 <form asp-action="Register" asp-controller="Account" method="Post" class="col-12 form-horizontal" role="form">
 
@@ -7,32 +10,35 @@
 
 
     <div class="form-group">
-        <label asp-for="Username" class="col-md-2 control-label"></label>
+        <label asp-for="@Model.Username" class="col-md-2 control-label"></label>
         <div class="col-md-5">
-            <input asp-for="Username" class="form-control" />
-            <span asp-validation-for="Username" class="text-danger"></span>
+            <input asp-for="@Model.Username" class="form-control" />
+            <span asp-validation-for="@Model.Username" class="text-danger"></span>
         </div>
     </div>
     <div class="form-group">
-        <label asp-for="ContactId" class="col-md-2 control-label"></label>
+        <label asp-for="@Model.ContactId" class="col-md-2 control-label"></label>
         <div class="col-md-5">
-            <input asp-for="ContactId" class="form-control" />
-            <span asp-validation-for="ContactId" class="text-danger"></span>
+            <select asp-for="@Model.ContactId" asp-items="@Model.ContactList" class="form-group col-5 btn btn-primary ">
+                <option value="-1">Select Contact</option>
+            </select>
+            <span asp-validation-for="@Model.ContactId" class="text-danger"></span>
+
         </div>
     </div>
     <div class="form-group">
-        <label asp-for="Password" class="col-md-2 control-label"></label>
+        <label asp-for="@Model.Password" class="col-md-2 control-label"></label>
         <div class="col-md-5">
-            <input asp-for="Password" class="form-control" />
-            <span asp-validation-for="Password" class="text-danger"></span>
+            <input asp-for="@Model.Password" class="form-control" />
+            <span asp-validation-for="@Model.Password" class="text-danger"></span>
         </div>
     </div>
 
     <div class="form-group">
-        <label asp-for="ConfirmPassword" class="col-md-2 control-label"></label>
+        <label asp-for="@Model.ConfirmPassword" class="col-md-2 control-label"></label>
         <div class="col-md-5">
-            <input asp-for="ConfirmPassword" class="form-control" />
-            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            <input asp-for="@Model.ConfirmPassword" class="form-control" />
+            <span asp-validation-for="@Model.ConfirmPassword" class="text-danger"></span>
         </div>
     </div>
 

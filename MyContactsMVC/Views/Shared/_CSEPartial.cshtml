@@ -1,0 +1,12 @@
+﻿@if (Context.Session.GetString("token") == null)
+{
+    
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            <a class="nav-link text-dark" asp-area="" asp-controller="CSE" asp-action="Show">Contact Skill Expertise</a>
+        </li>
+    </ul>
+}

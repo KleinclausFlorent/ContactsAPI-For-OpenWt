@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Configuration;
 using MyContactsMVC.Models;
 using MyContactsMVC.ViewModel;
@@ -56,7 +57,7 @@ namespace MyContactsMVC.Controllers
 
                         HttpContext.Session.SetString("username", jwt["username"].ToString());//username
 
-                        //HttpContext.Session.SetString("ContactId", jwt["ContactId"].ToString()); //ContactId
+                        HttpContext.Session.SetString("ContactId", jwt["id"].ToString()); //ContactId
 
                         ViewBag.Message = "User logged in successfully!" + jwt["username"].ToString();
                     }
@@ -79,11 +80,27 @@ namespace MyContactsMVC.Controllers
             return View();
 
         }
-        public IActionResult Register()
+
+        //Should had a verification to be sure that there is not already a user link to the contact otherwise you can access to any contact
+        //Will probably stay as it is considering the time remaining
+        public async Task<IActionResult> Register()
         {
             var register = new RegisterViewModel();
-            return View();
+            List<Contact> contactList = new List<Contact>();
+
+            using (var httpClient = new HttpClient())
+            {
+                using (var response = await httpClient.GetAsync(URLBase + "Contact"))
+                {
+                    string apiResponse = await response.Content.ReadAsStringAsync();
+
+                    contactList = JsonConvert.DeserializeObject<List<Contact>>(apiResponse);
+                }
+            }
+            register.ContactList = new SelectList(contactList, "Id", "Firstname");
+            return View(register);
         }
+
         [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel register)
         {
