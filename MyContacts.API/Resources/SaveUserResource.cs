@@ -5,13 +5,17 @@ using System.Threading.Tasks;
 
 namespace MyContacts.API.Resources
 {
+    /// <summary>
+    /// Class used to define the resource we will ask for the User model
+    /// </summary>
     public class SaveUserResource
     {
-        public string Username { get; set; }
+        // --- Attributes ---
+            public string Username { get; set; }
 
-        public int ContactId { get; set; }
+            public int ContactId { get; set; }
 
-        public string Password { get; set; }
+            public string Password { get; set; }
 
     }
 }

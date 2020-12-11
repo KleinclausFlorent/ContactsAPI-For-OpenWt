@@ -8,6 +8,10 @@ using System.Threading.Tasks;
 
 namespace MyContacts.API.Mapping
 {
+    /// <summary>
+    /// Class used to define the mappingProfile for automapper
+    /// It allows use to transfer data from one class to another easyly
+    /// </summary>
     public class MappingProfile : Profile
     {
         public MappingProfile()

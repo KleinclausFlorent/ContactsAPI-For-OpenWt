@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 
 namespace MyContacts.Core.Repositories
 {
+    /// <summary>
+    /// interface for the Expertise model
+    /// defines the specific methods for this model 
+    /// </summary>
     public interface IExpertiseRepository : IRepository<Expertise>
     {
-        Task<IEnumerable<Expertise>> GetAllWithContactSkillExpertiseAsync();
+        // ---  Methods ---
+            Task<IEnumerable<Expertise>> GetAllWithContactSkillExpertiseAsync();
 
-        Task<Expertise> GetWithContactSkillExpertisesByIdAsync(int id);
+            Task<Expertise> GetWithContactSkillExpertisesByIdAsync(int id);
 
     }
 }

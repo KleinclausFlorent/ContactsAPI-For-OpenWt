@@ -13,138 +13,144 @@ using System.Threading.Tasks;
 
 namespace MyContacts.API.Controllers
 {
+    /// <summary>
+    /// Class controller for the Expertise model. 
+    /// It defines and implements the API methods used to make request to the database
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class ExpertiseController : ControllerBase
     {
-        private readonly IExpertiseService _expertiseService;
-        private readonly IMapper _mapperService;
+        // --- Attributes ---
+            private readonly IExpertiseService _expertiseService;
+            private readonly IMapper _mapperService;
 
-        public ExpertiseController(IExpertiseService expertiseService, IMapper mapperService)
-        {
-            _expertiseService = expertiseService;
-            _mapperService = mapperService;
-        }
-
-        [HttpGet("")]
-        [Authorize]
-        public async Task<ActionResult<IEnumerable<ExpertiseResource>>> GetAllExpertises()
-        {
-            try
+        // --- Methods ---
+            public ExpertiseController(IExpertiseService expertiseService, IMapper mapperService)
             {
-
-                var expertises = await _expertiseService.GetAllExpertises();
-
-                var expertiseResources = _mapperService.Map<IEnumerable<Expertise>, IEnumerable<ExpertiseResource>>(expertises);
-
-                return Ok(expertiseResources);
+                _expertiseService = expertiseService;
+                _mapperService = mapperService;
             }
-            catch (Exception ex)
+
+            [HttpGet("")]
+            [Authorize]
+            public async Task<ActionResult<IEnumerable<ExpertiseResource>>> GetAllExpertises()
             {
-                return BadRequest(ex.Message);
-            }
-        }
+                try
+                {
 
-        [HttpGet("{id}")]
-        [Authorize]
-        public async Task<ActionResult<ExpertiseResource>> GetExpertiseById(int id)
-        {
-            try
+                    var expertises = await _expertiseService.GetAllExpertises();
+
+                    var expertiseResources = _mapperService.Map<IEnumerable<Expertise>, IEnumerable<ExpertiseResource>>(expertises);
+
+                    return Ok(expertiseResources);
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest(ex.Message);
+                }
+            }
+
+            [HttpGet("{id}")]
+            [Authorize]
+            public async Task<ActionResult<ExpertiseResource>> GetExpertiseById(int id)
             {
+                try
+                {
 
-                var expertise = await _expertiseService.GetExpertiseById(id);
+                    var expertise = await _expertiseService.GetExpertiseById(id);
 
-                if (expertise == null) return BadRequest("No expertise found");
+                    if (expertise == null) return BadRequest("No expertise found");
 
-                var expertiseResource = _mapperService.Map<Expertise, ExpertiseResource>(expertise);
+                    var expertiseResource = _mapperService.Map<Expertise, ExpertiseResource>(expertise);
 
-                return Ok(expertiseResource);
+                    return Ok(expertiseResource);
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest(ex.Message);
+                }
             }
-            catch (Exception ex)
+
+            [HttpPost("")]
+            [Authorize]
+            public async Task<ActionResult<ExpertiseResource>> CreateExpertise(SaveExpertiseResource saveExpertiseResource)
             {
-                return BadRequest(ex.Message);
-            }
-        }
+                try
+                {
+                    //Validation des données entrantes
+                    var validation = new SaveExpertiseResourceValidation();
+                    var validationResult = await validation.ValidateAsync(saveExpertiseResource);
+                    if (!validationResult.IsValid) return BadRequest(validationResult.Errors);
 
-        [HttpPost("")]
-        [Authorize]
-        public async Task<ActionResult<ExpertiseResource>> CreateExpertise(SaveExpertiseResource saveExpertiseResource)
-        {
-            try
+                    //Mappage
+                    var expertise = _mapperService.Map<SaveExpertiseResource, Expertise>(saveExpertiseResource);
+                    //Création
+                    var expertiseNew = await _expertiseService.CreateExpertise(expertise);
+                    //Mappage
+                    var expertiseResource = _mapperService.Map<Expertise, ExpertiseResource>(expertiseNew);
+                    return Ok(expertiseResource);
+
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest(ex.Message);
+                }
+            }
+
+
+            [HttpPut("")]
+            [Authorize]
+            public async Task<ActionResult<ExpertiseResource>> UpdateExpertise(int id, SaveExpertiseResource saveExpertiseResource)
             {
-                //Validation des données entrantes
-                var validation = new SaveExpertiseResourceValidation();
-                var validationResult = await validation.ValidateAsync(saveExpertiseResource);
-                if (!validationResult.IsValid) return BadRequest(validationResult.Errors);
+                try
+                {
+                    //Validation des données entrantes
+                    var validation = new SaveExpertiseResourceValidation();
+                    var validationResult = await validation.ValidateAsync(saveExpertiseResource);
+                    if (!validationResult.IsValid) return BadRequest(validationResult.Errors);
 
-                //Mappage
-                var expertise = _mapperService.Map<SaveExpertiseResource, Expertise>(saveExpertiseResource);
-                //Création
-                var expertiseNew = await _expertiseService.CreateExpertise(expertise);
-                //Mappage
-                var expertiseResource = _mapperService.Map<Expertise, ExpertiseResource>(expertiseNew);
-                return Ok(expertiseResource);
+                    //Get expertise by id
+                    var expertiseUpdate = await _expertiseService.GetExpertiseById(id);
+                    if (expertiseUpdate == null) return NotFound();
 
+                    //Mappage
+                    var expertise = _mapperService.Map<SaveExpertiseResource, Expertise>(saveExpertiseResource);
+                    //Update expertise
+                    await _expertiseService.UpdateExpertise(expertiseUpdate, expertise);
+                    //get new expertise by id
+                    var expertiseNew = await _expertiseService.GetExpertiseById(id);
+                    //Mappage
+                    var expertiseNewResource = _mapperService.Map<Expertise, ExpertiseResource>(expertiseNew);
+
+                    return Ok(expertiseNewResource);
+
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest(ex.Message);
+                }
             }
-            catch (Exception ex)
+
+            [HttpDelete("{id}")]
+            [Authorize]
+            public async Task<ActionResult> DeleteExpertise(int id)
             {
-                return BadRequest(ex.Message);
+                try
+                {
+                    var expertise = await _expertiseService.GetExpertiseById(id);
+
+                    if (expertise == null) return NotFound();
+
+                    await _expertiseService.DeleteExpertise(expertise);
+
+                    return NoContent();
+
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest(ex.Message);
+                }
             }
-        }
-
-
-        [HttpPut("")]
-        [Authorize]
-        public async Task<ActionResult<ExpertiseResource>> UpdateExpertise(int id, SaveExpertiseResource saveExpertiseResource)
-        {
-            try
-            {
-                //Validation des données entrantes
-                var validation = new SaveExpertiseResourceValidation();
-                var validationResult = await validation.ValidateAsync(saveExpertiseResource);
-                if (!validationResult.IsValid) return BadRequest(validationResult.Errors);
-
-                //Get expertise by id
-                var expertiseUpdate = await _expertiseService.GetExpertiseById(id);
-                if (expertiseUpdate == null) return NotFound();
-
-                //Mappage
-                var expertise = _mapperService.Map<SaveExpertiseResource, Expertise>(saveExpertiseResource);
-                //Update expertise
-                await _expertiseService.UpdateExpertise(expertiseUpdate, expertise);
-                //get new expertise by id
-                var expertiseNew = await _expertiseService.GetExpertiseById(id);
-                //Mappage
-                var expertiseNewResource = _mapperService.Map<Expertise, ExpertiseResource>(expertiseNew);
-
-                return Ok(expertiseNewResource);
-
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-        }
-
-        [HttpDelete("{id}")]
-        [Authorize]
-        public async Task<ActionResult> DeleteExpertise(int id)
-        {
-            try
-            {
-                var expertise = await _expertiseService.GetExpertiseById(id);
-
-                if (expertise == null) return NotFound();
-
-                await _expertiseService.DeleteExpertise(expertise);
-
-                return NoContent();
-
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-        }
     }
 }

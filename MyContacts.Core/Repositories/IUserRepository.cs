@@ -6,15 +6,20 @@ using System.Threading.Tasks;
 
 namespace MyContacts.Core.Repositories
 {
+    /// <summary>
+    /// interface for the User model
+    /// defines the specific methods for this model 
+    /// </summary>
     public interface IUserRepository : IRepository<User>
     {
-        Task<User> Authenticate(string username, string password);
+        // --- Methods ---
+            Task<User> Authenticate(string username, string password);
 
-        Task<User> Create(User userParam, string password);
+            Task<User> Create(User userParam, string password);
 
-        void Update(User user, string password = null);
+            void Update(User user, string password = null);
 
-        void Delete(int id);
+            void Delete(int id);
 
     }
 }

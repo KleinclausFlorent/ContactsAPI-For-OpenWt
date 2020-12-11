@@ -6,19 +6,23 @@ using System.Threading.Tasks;
 
 namespace MyContacts.Core.Services
 {
+    /// <summary>
+    /// interface for the User service
+    /// defines the specific methods for this model  which will be called in the Service tier
+    /// </summary>
     public interface IUserService
     {
+        // --- Methods ---
+            Task<User> Authenticate(string username, string password);
 
-        Task<User> Authenticate(string username, string password);
+            Task<IEnumerable<User>> GetAllUsers();
 
-        Task<IEnumerable<User>> GetAllUsers();
+            Task<User> GetUserById(int id);
 
-        Task<User> GetUserById(int id);
+            Task<User> Create(User user, string password);
 
-        Task<User> Create(User user, string password);
+            void Update(User user, string password = null);
 
-        void Update(User user, string password = null);
-
-        void Delete(int id);
+            void Delete(int id);
     }
 }

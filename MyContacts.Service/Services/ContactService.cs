@@ -8,49 +8,55 @@ using System.Threading.Tasks;
 
 namespace MyContacts.Service.Services
 {
+    /// <summary>
+    /// Class which implements the contact service interface
+    /// used the unit of work to acces the database and return what is needed in the requests
+    /// </summary>
     public class ContactService : IContactService
     {
-        private readonly IUnitOfWork _unitOfWork;
+        // --- Attributes ---
+            private readonly IUnitOfWork _unitOfWork;
 
-        public ContactService(IUnitOfWork unitOfWork)
-        {
-            _unitOfWork = unitOfWork;
-        }
+        // --- Methods ---
+            public ContactService(IUnitOfWork unitOfWork)
+            {
+                _unitOfWork = unitOfWork;
+            }
 
-        public async Task<Contact> CreateContact(Contact newContact)
-        {
-            await _unitOfWork.Contacts.AddAsync(newContact);
-            await _unitOfWork.CommitAsync();
-            return newContact;
-        }
+            public async Task<Contact> CreateContact(Contact newContact)
+            {
+                await _unitOfWork.Contacts.AddAsync(newContact);
+                await _unitOfWork.CommitAsync();
+                return newContact;
+            }
 
-        public async Task DeleteContact(Contact contact)
-        {
-            _unitOfWork.Contacts.Remove(contact);
-            await _unitOfWork.CommitAsync();
-        }
+            public async Task DeleteContact(Contact contact)
+            {
+                _unitOfWork.Contacts.Remove(contact);
+                await _unitOfWork.CommitAsync();
+            }
 
-        public async Task<IEnumerable<Contact>> GetAllContacts()
-        {
-            return await _unitOfWork.Contacts.GetAllAsync();
-        }
+            public async Task<IEnumerable<Contact>> GetAllContacts()
+            {
+                return await _unitOfWork.Contacts.GetAllAsync();
+            }
 
-        public async Task<Contact> GetContactById(int id)
-        {
-            return await _unitOfWork.Contacts.GetByIdAsync(id);
-        }
+            public async Task<Contact> GetContactById(int id)
+            {
+                return await _unitOfWork.Contacts.GetByIdAsync(id);
+            }
 
 
-        public async Task UpdateContact(Contact contactToBeUpdated, Contact contact)
-        {
-            contactToBeUpdated.Firstname = contact.Firstname;
-            contactToBeUpdated.Lastname = contact.Lastname;
-            contactToBeUpdated.Adress = contact.Adress;
-            contactToBeUpdated.Email = contact.Email;
-            contactToBeUpdated.Fullname = contact.Fullname;
-            contactToBeUpdated.Mobile = contact.Mobile;
+            public async Task UpdateContact(Contact contactToBeUpdated, Contact contact)
+            {
+                contactToBeUpdated.Firstname = contact.Firstname;
+                contactToBeUpdated.Lastname = contact.Lastname;
+                contactToBeUpdated.Adress = contact.Adress;
+                contactToBeUpdated.Email = contact.Email;
+                contactToBeUpdated.Fullname = contact.Fullname;
+                contactToBeUpdated.Mobile = contact.Mobile;
 
-            await _unitOfWork.CommitAsync();
-        }
+                await _unitOfWork.CommitAsync();
+            }
     }
 }

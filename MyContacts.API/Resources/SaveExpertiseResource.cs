@@ -5,8 +5,12 @@ using System.Threading.Tasks;
 
 namespace MyContacts.API.Resources
 {
+    /// <summary>
+    /// Class used to define the resource we will ask for the Expertise model
+    /// </summary>
     public class SaveExpertiseResource
     {
-        public string Name { get; set; }
+        // --- Attributes ---
+            public string Name { get; set; }
     }
 }

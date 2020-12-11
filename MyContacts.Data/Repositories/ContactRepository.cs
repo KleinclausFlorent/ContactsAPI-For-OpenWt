@@ -9,30 +9,36 @@ using System.Threading.Tasks;
 
 namespace MyContacts.Data.Repositories
 {
+    /// <summary>
+    /// Class repository for the contact model, herit from repository and implements the contact interface repository
+    /// </summary>
     public class ContactRepository : Repository<Contact>, IContactRepository
     {
-        private MyContactsDbContext MyContactsDbContext
-        {
-            get { return Context as MyContactsDbContext;  }
-        }
+        // --- Attributes ---
+            // -- Private --
+                private MyContactsDbContext MyContactsDbContext
+                {
+                    get { return Context as MyContactsDbContext;  }
+                }
+        // --- Methods ---
+            // -- Public --
+                public ContactRepository(MyContactsDbContext context): base(context) { }
 
-        public ContactRepository(MyContactsDbContext context): base(context) { }
 
 
+                public async  Task<IEnumerable<Contact>> GetAllWithContactSkillExpertiseAsync()
+                {
+                    return await MyContactsDbContext.Contacts
+                       .Include(c => c.ContactSkillExpertises)
+                       .ToListAsync();
+                }
 
-        public async  Task<IEnumerable<Contact>> GetAllWithContactSkillExpertiseAsync()
-        {
-            return await MyContactsDbContext.Contacts
-               .Include(c => c.ContactSkillExpertises)
-               .ToListAsync();
-        }
-
-        public async Task<Contact> GetWithContactSkillExpertisesByIdAsync(int id)
-        {
-            return await MyContactsDbContext.Contacts
-                .Include(c => c.ContactSkillExpertises)
-                .SingleOrDefaultAsync(c => c.Id == id);
-        }
+                public async Task<Contact> GetWithContactSkillExpertisesByIdAsync(int id)
+                {
+                    return await MyContactsDbContext.Contacts
+                        .Include(c => c.ContactSkillExpertises)
+                        .SingleOrDefaultAsync(c => c.Id == id);
+                }
 
 
     }

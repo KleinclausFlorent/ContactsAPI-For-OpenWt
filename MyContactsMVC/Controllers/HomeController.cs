@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace MyContactsMVC.Controllers
 {
+    /// <summary>
+    /// Class controller for the Home Page. 
+    /// </summary>
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

@@ -6,19 +6,24 @@ using System.Threading.Tasks;
 
 namespace MyContacts.Core
 {
+    /// <summary>
+    /// interface for the UnitofWork links the repositories to the databaseContext
+    /// defines the specific methods and will be implemented in the data tier
+    /// </summary>
     public interface IUnitOfWork : IDisposable
     {
+        // --- Attributes ---
+            IContactRepository Contacts { get; }
 
-        IContactRepository Contacts { get; }
+            ISkillRepository Skills { get;  }
 
-        ISkillRepository Skills { get;  }
+            IUserRepository Users { get; }
 
-        IUserRepository Users { get; }
+            IExpertiseRepository Expertises { get; }
 
-        IExpertiseRepository Expertises { get; }
+            IContactSkillExpertiseRepository ContactSkillExpertises { get; }
 
-        IContactSkillExpertiseRepository ContactSkillExpertises { get; }
-
-        Task<int> CommitAsync();
+        // --- Methods ---
+            Task<int> CommitAsync();
     }
 }

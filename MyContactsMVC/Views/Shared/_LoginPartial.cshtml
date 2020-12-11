@@ -1,4 +1,6 @@
-﻿@if (Context.Session.GetString("token") == null)
+﻿
+<!-- Define the header part for the account gestion-->
+@if (Context.Session.GetString("token") == null)
 {
     <li class="nav-item">
         <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">Register</a>

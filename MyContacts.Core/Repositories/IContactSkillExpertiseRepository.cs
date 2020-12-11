@@ -6,20 +6,25 @@ using System.Threading.Tasks;
 
 namespace MyContacts.Core.Repositories
 {
+    /// <summary>
+    /// interface for the ContactSkillExpertise model
+    /// defines the specific methods for this model 
+    /// </summary>
     public interface IContactSkillExpertiseRepository : IRepository<ContactSkillExpertise>
     {
-        Task<IEnumerable<ContactSkillExpertise>> GetAllWithCSEAsync();
+        // ---  Methods ---
+            Task<IEnumerable<ContactSkillExpertise>> GetAllWithCSEAsync();
 
-        Task<ContactSkillExpertise> GetWithCSEByIdAsync(int id);
+            Task<ContactSkillExpertise> GetWithCSEByIdAsync(int id);
 
-        Task<int> GetCSEId(ContactSkillExpertise contactSkillExpertiseToFind);
+            Task<int> GetCSEId(ContactSkillExpertise contactSkillExpertiseToFind);
 
-        Task<int> GetCSEIdByContactIdSkillId(int contactId, int skillId);
+            Task<int> GetCSEIdByContactIdSkillId(int contactId, int skillId);
 
-        Task<IEnumerable<ContactSkillExpertise>> GetAllWithContactByContactIdAsync(int contactId);
+            Task<IEnumerable<ContactSkillExpertise>> GetAllWithContactByContactIdAsync(int contactId);
 
-        Task<IEnumerable<ContactSkillExpertise>> GetAllWithContactBySkillIdAsync(int skillId);
+            Task<IEnumerable<ContactSkillExpertise>> GetAllWithContactBySkillIdAsync(int skillId);
 
-        Task<IEnumerable<ContactSkillExpertise>> GetAllWithContactByExpertiseIdAsync(int expertiseId);
+            Task<IEnumerable<ContactSkillExpertise>> GetAllWithContactByExpertiseIdAsync(int expertiseId);
     }
 }

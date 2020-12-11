@@ -9,48 +9,55 @@ using System.Threading.Tasks;
 
 namespace MyContacts.Data.Repositories
 {
+    /// <summary>
+    /// Class repository , implements the interface repository for generic classes
+    /// </summary>
     public class Repository<TEntity> : IRepository<TEntity> where TEntity: class
     {
-        protected readonly DbContext Context;
+        // --- Attributes ---
+            // -- Protected --
+                protected readonly DbContext Context;
 
-        public Repository(DbContext context)
-        {
-            this.Context = context;
-        }
+            // -- Public --
+                public Repository(DbContext context)
+                {
+                    this.Context = context;
+                }
 
-        public ValueTask<TEntity> GetByIdAsync(int id)
-        {
-            return Context.Set<TEntity>().FindAsync(id);
-        }
+        // --- Methods ---
+            public ValueTask<TEntity> GetByIdAsync(int id)
+            {
+                return Context.Set<TEntity>().FindAsync(id);
+            }
 
-        public async Task<IEnumerable<TEntity>> GetAllAsync()
-        {
-            return await Context.Set<TEntity>().ToListAsync();
-        }
+            public async Task<IEnumerable<TEntity>> GetAllAsync()
+            {
+                return await Context.Set<TEntity>().ToListAsync();
+            }
 
-        public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate)
-        {
-            return Context.Set<TEntity>().Where(predicate);
-        }
+            public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate)
+            {
+                return Context.Set<TEntity>().Where(predicate);
+            }
 
-        public Task<TEntity> SingleOrDefaultAsync(Expression<Func<TEntity, bool>> predicate)
-        {
-            return Context.Set<TEntity>().SingleOrDefaultAsync(predicate);
-        }
+            public Task<TEntity> SingleOrDefaultAsync(Expression<Func<TEntity, bool>> predicate)
+            {
+                return Context.Set<TEntity>().SingleOrDefaultAsync(predicate);
+            }
 
-        public async Task AddAsync(TEntity entity)
-        {
-            await Context.Set<TEntity>().AddAsync(entity);
-        }
+            public async Task AddAsync(TEntity entity)
+            {
+                await Context.Set<TEntity>().AddAsync(entity);
+            }
 
-        public void Remove(TEntity entity)
-        {
-            Context.Set<TEntity>().Remove(entity);
-        }
+            public void Remove(TEntity entity)
+            {
+                Context.Set<TEntity>().Remove(entity);
+            }
 
-        public void RemoveRange(IEnumerable<TEntity> entities)
-        {
-            Context.Set<TEntity>().RemoveRange(entities);
-        }
+            public void RemoveRange(IEnumerable<TEntity> entities)
+            {
+                Context.Set<TEntity>().RemoveRange(entities);
+            }
     }
 }

@@ -6,16 +6,21 @@ using System.Threading.Tasks;
 
 namespace MyContacts.Core.Services
 {
+    /// <summary>
+    /// interface for the Skill service
+    /// defines the specific methods for this model  which will be called in the Service tier
+    /// </summary>
     public interface ISkillService
     {
-        Task<IEnumerable<Skill>> GetAllSkills();
+        // --- Methods ---
+            Task<IEnumerable<Skill>> GetAllSkills();
 
-        Task<Skill> GetSkillById(int id);
+            Task<Skill> GetSkillById(int id);
 
-        Task<Skill> CreateSkill(Skill newSkill);
+            Task<Skill> CreateSkill(Skill newSkill);
 
-        Task UpdateSkill(Skill skillToBeUpdated, Skill skill);
+            Task UpdateSkill(Skill skillToBeUpdated, Skill skill);
 
-        Task DeleteSkill(Skill skill);
+            Task DeleteSkill(Skill skill);
     }
 }

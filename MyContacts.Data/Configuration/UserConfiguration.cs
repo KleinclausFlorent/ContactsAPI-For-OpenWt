@@ -7,24 +7,28 @@ using System.Text;
 
 namespace MyContacts.Data.Configuration
 {
+    /// <summary>
+    /// Class used to defined the specificities of the User's table
+    /// </summary>
     class UserConfiguration : IEntityTypeConfiguration<User>
     {
-        public void Configure(EntityTypeBuilder<User> builder)
-        {
-            builder
-                .HasKey(u => u.Id);
-            builder
-                .Property(u => u.Id)
-                .UseIdentityColumn();
-            builder
-                .Property(u => u.Username)
-                .IsRequired()
-                .HasMaxLength(50);
-            builder
-                .HasOne(u => u.Contact)
-                .WithOne(c => c.User);
-            builder
-                .ToTable("Users");
-        }
+        // --- Methods ---
+            public void Configure(EntityTypeBuilder<User> builder)
+            {
+                builder
+                    .HasKey(u => u.Id);
+                builder
+                    .Property(u => u.Id)
+                    .UseIdentityColumn();
+                builder
+                    .Property(u => u.Username)
+                    .IsRequired()
+                    .HasMaxLength(50);
+                builder
+                    .HasOne(u => u.Contact)
+                    .WithOne(c => c.User);
+                builder
+                    .ToTable("Users");
+            }
     }
 }

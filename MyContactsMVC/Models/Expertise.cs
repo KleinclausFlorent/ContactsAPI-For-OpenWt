@@ -5,10 +5,14 @@ using System.Threading.Tasks;
 
 namespace MyContactsMVC.Models
 {
+    /// <summary>
+    /// Class used to define Expertise in the web client context
+    /// </summary>
     public class Expertise
     {
-        public int Id { get; set; }
+        // --- Attributes ---
+            public int Id { get; set; }
 
-        public string Name { get; set; }
+            public string Name { get; set; }
     }
 }
