@@ -14,7 +14,12 @@ I made 3 :
  Mkleinclaus/ 1234Martial
  EMacron / 1234Emmanuel
 
-They were all linked to the user with the same first name. 
+They were all linked to the user with the same firstname. 
+
+NB : After testing my solution on another device. You just need to write "update-database" in the Package Manager Console to initialise the database with my migrations.
+You will not get any user so you will need to register and authentify to be able to use the other request.
+
+Warning : You need to give an existing contactId to register. You can check them in the Contact table.
 
 I hope that my solution answer to your challenge and that it will allow me to get through the recruitment process. 
 
