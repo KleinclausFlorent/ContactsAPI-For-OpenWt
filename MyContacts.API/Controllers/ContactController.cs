@@ -33,7 +33,6 @@ namespace MyContacts.API.Controllers
             }
 
             [HttpGet("")]
-            [Authorize]
             public async Task<ActionResult<IEnumerable<ContactResource>>> GetAllContact()
             {
                 try

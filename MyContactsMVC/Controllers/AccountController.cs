@@ -62,7 +62,11 @@ namespace MyContactsMVC.Controllers
 
                             HttpContext.Session.SetString("username", jwt["username"].ToString());//username
 
-                            HttpContext.Session.SetString("ContactId", jwt["id"].ToString()); //ContactId
+                            ///<remarks>
+                            ///I modified the next line because it was adding the user id not the contactId to the session and it's not what I need for my autorisations
+                            ///</remarks>
+
+                            HttpContext.Session.SetString("ContactId", jwt["contact"].ToString()); //ContactId
 
                             ViewBag.Message = "User logged in successfully!" + jwt["username"].ToString();
                         }
@@ -106,6 +110,9 @@ namespace MyContactsMVC.Controllers
                 return View(register);
             }
 
+            ///<remarks>
+            ///It seems that you can only add a user with a contactId which is not already used
+            ///</remarks>
             [HttpPost]
             public async Task<IActionResult> Register(RegisterViewModel register)
             {
@@ -126,7 +133,7 @@ namespace MyContactsMVC.Controllers
 
                             HttpContext.Session.SetString("username", jwt["username"].ToString());//username
 
-                           // HttpContext.Session.SetString("ContactId", jwt["ContactId"].ToString()); //ContactId
+                            HttpContext.Session.SetString("ContactId", jwt["contact"].ToString()); //ContactId
 
                             ViewBag.Message = "User logged in successfully!" + jwt["username"].ToString();
                             return RedirectToAction("Index", "Home");
