@@ -22,16 +22,33 @@ namespace MyContacts.API.Controllers
     public class ContactController : ControllerBase
     {
         // --- Attributes ---
+            /// <summary>
+            /// attribute use to access the contact service reference to use the requests defined in it
+            /// </summary>
             private readonly IContactService _contactService;
+            /// <summary>
+            /// Attribute use to acces the mapper service reference to use its conversion methods
+            /// </summary>
             private readonly IMapper _mapperService;
 
         // --- Methods ---
+
+            /// <summary>
+            /// Constructor method use to inject dependancies
+            /// </summary>
+            /// <param name="contactService"><see cref="IContactService"/></param>
+            /// <param name="mapperService"><see cref="IMapper"/></param>
             public ContactController(IContactService contactService, IMapper mapperService)
             {
                 _contactService = contactService;
                 _mapperService = mapperService;
             }
 
+
+            /// <summary>
+            /// method used when get request is made to the api for the Contact
+            /// </summary>
+            /// <returns>A list of <see cref="ContactResource"/></returns>
             [HttpGet("")]
             public async Task<ActionResult<IEnumerable<ContactResource>>> GetAllContact()
             {
@@ -50,6 +67,12 @@ namespace MyContacts.API.Controllers
                 }
             }
 
+
+            /// <summary>
+            /// method used when the api answer to a get request with an id
+            /// </summary>
+            /// <param name="id">Int value refering to the id of a contact in the database</param>
+            /// <returns>The <see cref="ContactResource"/> linked to the id or an error saying that there is no such contact </returns>
             [HttpGet("{id}")]
             [Authorize]
             public async Task<ActionResult<ContactResource>> GetContactById(int id)
@@ -71,6 +94,12 @@ namespace MyContacts.API.Controllers
                 }
             }
 
+
+            /// <summary>
+            /// method used to answer a post request
+            /// </summary>
+            /// <param name="saveContactResource">The saveContactResource to add to the database</param>
+            /// <returns>The new contactResource from the database</returns>
             [HttpPost("")]
             [Authorize]
             public async Task<ActionResult<ContactResource>> CreateContact(SaveContactResource saveContactResource)
@@ -98,6 +127,13 @@ namespace MyContacts.API.Controllers
             }
 
 
+            
+            /// <summary>
+            /// Method used to answer a put request. It updates a contact
+            /// </summary>
+            /// <param name="id">id of the contact which need to be modify</param>
+            /// <param name="saveContactResource">the saveContactResource which contains the updated values for the contact</param>
+            /// <returns>the contactResource of the updated contact</returns>
             [HttpPut("")]
             [Authorize]
             public async Task<ActionResult<ContactResource>> UpdateContact(int id, SaveContactResource saveContactResource)
@@ -131,6 +167,11 @@ namespace MyContacts.API.Controllers
                 }
             }
 
+            /// <summary>
+            /// method used to answer a delete request. It deletes a contact from the database
+            /// </summary>
+            /// <param name="id">Id of the contact which need to be delete</param>
+            /// <returns>Nothing</returns>
             [HttpDelete("{id}")]
             [Authorize]
             public async Task<ActionResult> DeleteContact(int id)
