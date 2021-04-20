@@ -10,9 +10,9 @@ interact with the skill of the contact linked to your User Account.
 I am not sure that you will get my users because I created them with the web client.
 
 I made 3 :
- Fkleinclaus/ 1234Florent
- Mkleinclaus/ 1234Martial
- EMacron / 1234Emmanuel
+ Fkleinclaus
+ Mkleinclaus
+ EMacron 
 
 They were all linked to the user with the same firstname. 
 
